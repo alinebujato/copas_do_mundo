@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 
 class CopaModel {
   int id;
@@ -9,6 +10,7 @@ class CopaModel {
   String nomeArtilheiro;
   String quantGols;
   String imagemCard;
+  Color corTexto;
 
   CopaModel({
     this.id,
@@ -20,5 +22,6 @@ class CopaModel {
     this.nomeArtilheiro,
     this.quantGols,
     this.imagemCard,
+    this.corTexto,
   });
 }

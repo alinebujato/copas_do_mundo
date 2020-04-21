@@ -1,5 +1,6 @@
 import '../model/copa_model.dart';
 import 'database.dart';
+import 'package:flutter/cupertino.dart';
 
 class CopaRepository {
 
@@ -51,6 +52,7 @@ class CopaRepository {
           nomeArtilheiro: 'Hristo Stoichkov (BUL)',
           quantGols: '6',
           imagemCard: 'assets/eua.jpg',
+          corTexto: Color.fromRGBO(48, 153, 0, 0.7),
         ),
       );
       cursos.add(
@@ -64,6 +66,7 @@ class CopaRepository {
           nomeArtilheiro: 'Davor Šuker (HR)',
           quantGols: '6',
           imagemCard: 'assets/franca.jpg',
+          corTexto: Color.fromRGBO(22, 0, 194, 0.7),
         ),
       );
       cursos.add(
@@ -77,6 +80,7 @@ class CopaRepository {
           nomeArtilheiro: 'Ronaldo (BR)',
           quantGols: '8',
           imagemCard: 'assets/japao-coreia.jpg',
+          corTexto: Color.fromRGBO(48, 153, 0, 0.7),
         ),
       );
       cursos.add(
@@ -90,6 +94,7 @@ class CopaRepository {
           nomeArtilheiro: 'Miroslav Klose (GER)',
           quantGols: '5',
           imagemCard: 'assets/alemanha.png',
+          corTexto: Color.fromRGBO(58, 247, 0, 0.7),
         ),
       );
       cursos.add(
@@ -103,6 +108,7 @@ class CopaRepository {
           nomeArtilheiro: 'Thomas Müller (GER)',
           quantGols: '5',
           imagemCard: 'assets/africa.png',
+          corTexto: Color.fromRGBO(200, 5, 10, 0.7),
         ),
       );
       cursos.add(
@@ -116,6 +122,7 @@ class CopaRepository {
           nomeArtilheiro: 'James Rodríguez (COL)',
           quantGols: '6',
           imagemCard: 'assets/brasil.jpg',
+          corTexto: Color.fromRGBO(200, 5, 10, 0.7),
         ),
       );
       cursos.add(
@@ -129,6 +136,7 @@ class CopaRepository {
           nomeArtilheiro: 'Harry Kane (ENG)',
           quantGols: '6',
           imagemCard: 'assets/russia.jpg',
+          corTexto: Color.fromRGBO(52, 101, 242, 0.7),
         ),
       );
     }

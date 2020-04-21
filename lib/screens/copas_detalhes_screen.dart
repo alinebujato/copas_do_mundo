@@ -19,6 +19,10 @@ class _CopasDetalhesScreenState extends State<CopasDetalhesScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SizedBox(height: 40.0),
+        Container(
+          padding: EdgeInsets.only(bottom: 8.0, left: 90.0, top: 8.0),
+          child: Image.asset(copaModel.imagemCard, width: 64.0),
+        ),
         Text(
           "Copa do Mundo",
           style: TextStyle(
@@ -53,8 +57,8 @@ class _CopasDetalhesScreenState extends State<CopasDetalhesScreen> {
           child: Text(
             "Seleção campeã: " + copaModel.campeao,
             style: TextStyle(
-              fontSize: 25.0,
-              color: Color.fromRGBO(200, 5, 10, 0.7),
+              fontSize: 20.0,
+              color: copaModel.corTexto,
             ),
           ),
         ),
@@ -68,7 +72,7 @@ class _CopasDetalhesScreenState extends State<CopasDetalhesScreen> {
           ),
         ),
         Text(
-            "Artilharia",
+            "- Artilharia",
             style: TextStyle(
               fontSize: 20.0,
             ),
@@ -88,17 +92,6 @@ class _CopasDetalhesScreenState extends State<CopasDetalhesScreen> {
     // Box de cima
     final boxTop = Stack(
       children: <Widget>[
-        // Imagem do fundo
-        Container(
-          padding: EdgeInsets.only(left: 10.0),
-          // height: MediaQuery.of(context).size.height * 0.5,
-          // decoration: new BoxDecoration(
-          //   image: new DecorationImage(
-          //     image: new AssetImage('assets/eua.jpg'),
-          //     fit: BoxFit.cover,
-          //   ),
-          // ),
-        ),
         // Título e ano
         Container(
           padding: EdgeInsets.all(40.0),
