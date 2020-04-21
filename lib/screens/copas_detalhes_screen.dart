@@ -1,0 +1,150 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import '../model/copa_model.dart';
+
+class CopasDetalhesScreen extends StatefulWidget {
+  @override
+  _CopasDetalhesScreenState createState() => _CopasDetalhesScreenState();
+}
+
+class _CopasDetalhesScreenState extends State<CopasDetalhesScreen> {
+  CopaModel copaModel;
+
+  @override
+  Widget build(BuildContext context) {
+    copaModel = ModalRoute.of(context).settings.arguments;
+
+    // Título e ano
+    final topContentText = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SizedBox(height: 40.0),
+        Text(
+          "Copa do Mundo",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 35.0,
+          ),
+        ),
+        Text (
+          copaModel.lugar + " - " + copaModel.ano,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20.0,
+        ),
+        ),
+      ],
+    );
+
+    // Conteúdo principal (descrição)
+    final principalContent = Column (
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(bottom: 16.0),
+          child: Text(
+            copaModel.descricao,
+            style: TextStyle(fontSize: 14.0),
+            textAlign: TextAlign.justify,
+          ),
+        ),
+        Container (
+          padding: EdgeInsets.only(bottom: 16.0),
+          child: Text(
+            "Seleção campeã: " + copaModel.campeao,
+            style: TextStyle(
+              fontSize: 25.0,
+              color: Color.fromRGBO(200, 5, 10, 0.7),
+            ),
+          ),
+        ),
+        Container (
+          padding: EdgeInsets.only(bottom: 16.0),
+          child: Text(
+            copaModel.detalhesCampeao,
+            style: TextStyle(
+              fontSize: 14.0,
+            ),
+          ),
+        ),
+        Text(
+            "Artilharia",
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+        Container (
+          padding: EdgeInsets.only(bottom: 16.0),
+          child: Text(
+            "O artilheiro da Copa foi " + copaModel.nomeArtilheiro + " com " + copaModel.quantGols + " gols.",
+            style: TextStyle(
+              fontSize: 14.0,
+            ),
+          ),
+        ),
+      ],
+    );
+
+    // Box de cima
+    final boxTop = Stack(
+      children: <Widget>[
+        // Imagem do fundo
+        Container(
+          padding: EdgeInsets.only(left: 10.0),
+          // height: MediaQuery.of(context).size.height * 0.5,
+          // decoration: new BoxDecoration(
+          //   image: new DecorationImage(
+          //     image: new AssetImage('assets/eua.jpg'),
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
+        ),
+        // Título e ano
+        Container(
+          padding: EdgeInsets.all(40.0),
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
+          child: Center(
+            child: topContentText,
+          ),
+        ),
+        // Botão de voltar para a tela principal
+        Positioned(
+          left: 8.0,
+          top: 60.0,
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
+        )
+      ],
+    );
+
+    // Box de baixo
+    final boxBottom = Container(
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.all(40.0),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            principalContent,
+          ],
+        ),
+      ),
+    );
+
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          boxTop,
+          boxBottom,
+        ],
+      ),
+    );
+  }
+}
