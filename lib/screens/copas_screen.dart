@@ -14,6 +14,7 @@ class _CopasScreenState extends State<CopasScreen> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(0, 0, 0, .9),
         title: Text("Copas do Mundo - Futebol"),
+        centerTitle: true,
       ),
       body: FutureBuilder<List<CopaModel>>(
         future: CopaRepository().findAllAsync(),
@@ -34,24 +35,24 @@ class _CopasScreenState extends State<CopasScreen> {
     return ListView.builder(
       itemCount: copas == null ? 0 : copas.length,
       itemBuilder: (BuildContext ctx, int index) {
-        return cardCurso(copas[index]);
+        return cardCopa(copas[index]);
       },
     );
   }
 
-  Card cardCurso(CopaModel copa) {
+  Card cardCopa(CopaModel copa) {
     return Card(
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.horizontal(),
+        borderRadius: BorderRadius.circular(20),
       ),
       margin: new EdgeInsets.symmetric(
-        horizontal: 16.0,
+        horizontal: 8.0,
         vertical: 8.0,
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(20, 20, 20, 10),
+          color: Color.fromRGBO(0, 0, 0, 10),
         ),
         child: ListTile(
           contentPadding: EdgeInsets.symmetric(
